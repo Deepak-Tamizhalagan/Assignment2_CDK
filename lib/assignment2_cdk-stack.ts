@@ -8,7 +8,12 @@ import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 
 export class Assignment2CdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+    super(scope, id, {
+  synthesizer: new cdk.BootstraplessSynthesizer()
+});
+
+
+
 
     // ========== 1. S3 BUCKET ==========
     const myBucket = new s3.Bucket(this, 'S3Bucket8983627', {
